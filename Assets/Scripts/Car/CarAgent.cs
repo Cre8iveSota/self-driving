@@ -82,8 +82,8 @@ public class CarAgent : Agent
         }
         var numStates = (int)Mathf.Pow(stateDivide, results.Count);
         int n;
-        if(CarRb.velocity.magnitude < 10) { n = 0; }
-        else if(CarRb.velocity.magnitude < 15) { n = 1; }
+        if(CarRb.linearVelocity.magnitude < 10) { n = 0; }
+        else if(CarRb.linearVelocity.magnitude < 15) { n = 1; }
         else { n = 2; }
         r += numStates * n;
         return r;
@@ -95,7 +95,7 @@ public class CarAgent : Agent
         Array.ForEach(Sensors, sensor => {
             results.AddRange(sensor.Hits());
         });
-        Vector3 local_v = CarRb.transform.InverseTransformDirection(CarRb.velocity);
+        Vector3 local_v = CarRb.transform.InverseTransformDirection(CarRb.linearVelocity);
         results.Add(local_v.x / 5.0f);
         results.Add(local_v.z / 5.0f);
         return results;
@@ -184,7 +184,7 @@ public class CarAgent : Agent
     }
 
     public override void Stop() {
-        CarRb.velocity = Vector3.zero;
+        CarRb.linearVelocity = Vector3.zero;
         CarRb.angularVelocity = Vector3.zero;
         Controller.Stop();
     }
