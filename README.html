@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E8%87%AA%E5%8B%95%E9%81%8B%E8%BB%A2%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E6%94%B9%E8%89%AF">自動運転プログラムの改良</h1>
+<h2 id="%E6%A6%82%E8%A6%81">概要</h2>
+<p>このサンプルコードでは, ニューロ進化(Neuro Evolution)とQ学習で車が各コースを走れるようになる進化・学習をします. <br>
+そのままのコードだと, Q学習ではコースの一部を走れるようになるところまで進化します. また, ニューロ進化ではすべてのコースを走れるようになるところまで進化します. そのため, この課題でニューロ進化を用いる場合は, 単にコースを走り切るだけではなく, 障害物を避けたりするなどの走る+αの動作を車ができるようになることが期待されています.</p>
+<img src="https://user-images.githubusercontent.com/56354049/169687752-117e5a1b-b34b-4f42-bb6f-2dd573567023.gif" alt="drawing" width="550"/>
+<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<hr>
+<ul>
+<li><a href="#%E8%87%AA%E5%8B%95%E9%81%8B%E8%BB%A2%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E6%94%B9%E8%89%AF">自動運転プログラムの改良</a>
+<ul>
+<li><a href="#%E6%A6%82%E8%A6%81">概要</a></li>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+<li><a href="#%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">ダウンロード</a>
+<ul>
+<li><a href="#%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">動作確認</a></li>
+</ul>
+</li>
+<li><a href="#unity-editor%E4%B8%8A%E3%81%A7%E3%81%AE%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">Unity Editor上での操作説明</a>
+<ul>
+<li><a href="#scene%E3%81%AE%E5%AE%9F%E8%A1%8C">Sceneの実行</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">ソースコード</a></li>
+<li><a href="#%E8%A8%AD%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bchallenge%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">設定されているChallengeについて</a>
+<ul>
+<li><a href="#challenge-1">Challenge 1</a></li>
+<li><a href="#challenge-2">Challenge 2</a></li>
+<li><a href="#challenge-3">Challenge 3</a></li>
+<li><a href="#challenge-4">Challenge 4</a></li>
+</ul>
+</li>
+<li><a href="#python%E9%80%A3%E6%90%BA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Python連携について</a>
+<ul>
+<li><a href="#%E6%BA%96%E5%82%99">準備</a></li>
+<li><a href="#%E4%BD%BF%E3%81%84%E6%96%B9">使い方</a></li>
+<li><a href="#scene%E3%82%92python%E5%AF%BE%E5%BF%9C%E3%81%95%E3%81%9B%E3%82%8B%E3%81%AB%E3%81%AF">SceneをPython対応させるには</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">ダウンロード</h2>
+<p><a href="https://drive.google.com/drive/folders/1WvrHWuLwVmsIn7PaLSVdql5R_vfBIUnh?usp=sharing">Google Driveのリンク</a>からダウンロードし, 適当なフォルダで展開してください. その後, Unity HubのOpenから展開した.projフォルダを開いてください.</p>
+<p>Google DriveにはUnityのライブラリは上げていませんが, Unity Hubで開く際に自動的に生成されます.</p>
+<p>macOS, Unity 2021.3.1f1以外で開く際には警告が出ますが, 警告に従ってバージョンの変更やパッケージのインストールなどをすれば以下の環境で動作することを確認しています.</p>
+<h4 id="%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D">動作確認</h4>
+<ul>
+<li>macOS Monterey 12.4</li>
+<li>Windows 10</li>
+<li>Windows 11</li>
+<li>Unity 2021.3.0f1</li>
+<li>Unity 2021.3.1f1</li>
+<li>Unity 2021.3.3f1</li>
+</ul>
+<h2 id="unity-editor%E4%B8%8A%E3%81%A7%E3%81%AE%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">Unity Editor上での操作説明</h2>
+<h3 id="scene%E3%81%AE%E5%AE%9F%E8%A1%8C">Sceneの実行</h3>
+<p>ProjectタブのAssets &gt; Scenesから選択したいシーンをダブルクリックして開きます.</p>
+<img src="Pictures/project.png" alt="unityinterface" width="250"/>
+<p>画面上部の再生ボタンを押すと学習が始まります. 学習中にはGame画面に表示されるスライダでプログラムの実行速度を調整できます. コンピュータへの負荷を少なくしたい場合は, 描画をオフにすることもできます。</p>
+<h2 id="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">ソースコード</h2>
+<ul>
+<li><code>/Assets/Scripts/Car/CarAgent.cs</code><br>
+車をスタート地点にセットし, Brainにセンサーなど環境の値を渡します. Brainからの指示が来るのでそれに従って車を運転します. 衝突を検知すると報酬値を返し, 車をリセットします.</li>
+<li><code>/Assets/Scripts/Car/CarController.cs</code><br>
+車の入力に対する動作が記述してあります (ex. <code>steering</code>の値を受け取りタイヤを回転させる)</li>
+</ul>
+<p>教科書(Mind Render AI Drill)の3, 4, 5章にサンプルコードが何をしているかがわかりやすく書いてあるので, 詳しくはそちらもご覧ください.</p>
+<h2 id="%E8%A8%AD%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bchallenge%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">設定されているChallengeについて</h2>
+<p>この課題ではあらかじめChallengeが設定されています. もちろん必ずしもこのChallengeに沿って課題を進める必要はありませんが参考にしてみてください. シーンファイルは以下にあります. 各シーンを開き再生を押すとニューロ進化による学習が始まります. <br>
+<code>/Assets/Scenes/NE_Challenge/Challenge*.unity</code></p>
+<h3 id="challenge-1">Challenge 1</h3>
+<p>コース上に数個の岩が設置されるのでその岩に当たらずにコースを一周できるように進化・学習させる(岩の位置は固定)</p>
+<h3 id="challenge-2">Challenge 2</h3>
+<p>Challenge1と同じくコース上に数個の岩が設置されるのでその岩に当たらずにコースを一周できるように進化・学習させる(岩の位置は固定ではなくランダム)</p>
+<h3 id="challenge-3">Challenge 3</h3>
+<p>坂の上から岩が転がり落ちてくるのでその岩に当たらずにコースを一周できるように進化・学習させる</p>
+<h3 id="challenge-4">Challenge 4</h3>
+<p>コース上に一定間隔で岩が置かれていて近づくと転がり落ちてくる. 岩の大きさや速度はランダム</p>
+<hr>
+<h2 id="python%E9%80%A3%E6%90%BA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Python連携について</h2>
+<p>Pythonを使うと, Numpyなどの数値計算モジュールやTensorflow, PyTorchなどの機械学習モジュールを用いることができます. 詳しくは教科書等を参考にしてください.</p>
+<h3 id="%E6%BA%96%E5%82%99">準備</h3>
+<p>必要なパッケージがダウンロードされていない場合は<code>pip</code>などで適宜ダウンロードしてください.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> pip install numpy</span>
+<span class="hljs-meta">$</span><span class="bash"> pip install asyncio</span>
+<span class="hljs-meta">$</span><span class="bash"> pip install asyncio-dgram</span>
+<span class="hljs-meta">$</span><span class="bash"> pip install torch</span>
+</div></code></pre>
+<h3 id="%E4%BD%BF%E3%81%84%E6%96%B9">使い方</h3>
+<ol>
+<li>ターミナルで<code>/env/src/PyNECommunicator.py</code>を実行している状態にします</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-meta">$</span><span class="bash"> python /env/src/PyNECommunicator.py</span>
+</div></code></pre>
+<ol start="2">
+<li><code>/Asset/Scenes/PythonNE/</code>下のシーンファイルをUnityから実行します</li>
+</ol>
+<p>現在<code>/env/src/PyNNBrain.py</code>は<code>NNBrain.cs</code>をPytorchに翻訳したものですが, Pythonで新しいニューラルネットワークの構造なども定義することができます.</p>
+<h3 id="scene%E3%82%92python%E5%AF%BE%E5%BF%9C%E3%81%95%E3%81%9B%E3%82%8B%E3%81%AB%E3%81%AF">SceneをPython対応させるには</h3>
+<p>通常のシーン(Challengeなど)をPythonに対応したシーンにするには以下の変更が必要です. 詳しくは既にPython対応しているシーンを参照して下さい.</p>
+<ul>
+<li>EventSystemの追加<br>
+ユーザーからの入力を受け取るものです. 今回はPythonからの入力を受け取っています. Python対応済みのシーンからのコピーで問題ないはずです.</li>
+<li>Environmentを<code>PyNEEnvironment.cs</code>にする<br>
+<code>NEEnvironment.cs</code>を<code>PyNEEnvironment.cs</code>にします. また, Agent Prefabを<code>Car@Blue</code>に設定します.</li>
+</ul>
+
+</body>
+</html>
